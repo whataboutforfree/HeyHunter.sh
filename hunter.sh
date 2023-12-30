@@ -1,19 +1,19 @@
 #!/bin/bash
 
 figlet HUNTER.sh
-echo "Scrap the Web for data"
+echo "Scrap la web por datos, by WhatAboutForFree_?"
 
 
-PS3='Select Option: '
-options=("Github Check" "Amass Enumeration" "test3" "Quit")
+PS3='Seleciona la opcion'
+options=("Github Check" "Amass Enumeration" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "Github Check")
             echo "----"
-            echo "Now we check github database"
+            echo "Ahora chequeamos la base de datos de github"
             echo "----"
-            read -p "Enter your url to check : " url
+            read -p "URL para hacer el scraping: " url
 echo "https://github.com/search?q=$url+password&type=code"
 echo "https://github.com/search?q=$url+dockercfg&type=code"
 echo "https://github.com/search?q=$url+pem_private&type=code"
@@ -41,16 +41,13 @@ echo "https://github.com/search?q=$url+composer.json&type=code"
 echo "https://github.com/search?q=$url+ftp.json&type=code"
             ;;
         "Amass Enumeration")
-              echo "Now we check multiple DB with Amass"
-             read -p "Enter your url to check : " url
+              echo "Ahora chequeamos por DB con Amass"
+             read -p "Introduce la URL para chequear: " url
             sudo amass enum -brute -d $url -src
-            ;;
-        "test3")
-            echo "you chose choice $REPLY which is $opt"
             ;;
         "Quit")
             break
             ;;
-        *) echo "invalid option $REPLY";;
+        *) echo "opcion invalida $REPLY";;
     esac
 done
