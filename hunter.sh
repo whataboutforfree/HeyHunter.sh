@@ -1,11 +1,11 @@
 #!/bin/bash
 
-figlet HUNTER.sh
+figlet Cazador___1.0 by WhatAboutForFree.sh
 echo "Scrap la web por datos, by WhatAboutForFree_?"
 
 
 PS3='Seleciona la opcion'
-options=("Github Check" "Amass Enumeration" "Quit")
+options=("Github Check" "Amass Enumeration brute" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -43,7 +43,7 @@ echo "https://github.com/search?q=$url+ftp.json&type=code"
         "Amass Enumeration")
               echo "Ahora chequeamos por DB con Amass"
              read -p "Introduce la URL para chequear: " url
-            sudo amass enum -brute -d $url -src
+            sudo amass enum -brute -d $url -v
             ;;
         "Quit")
             break
